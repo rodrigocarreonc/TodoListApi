@@ -6,8 +6,8 @@ The **Todo List API** is a backend application built with **Laravel 10** and **M
 ## Features
 - **User Authentication**: Register, login, and logout using JWT.
 - **Task Management**:
+  - Get task
   - Create new tasks.
-  - Retrieve tasks (single or multiple).
   - Update task details.
   - Delete tasks.
 - **Secure Endpoints**: All task-related endpoints are protected with JWT authentication.
@@ -28,7 +28,7 @@ The **Todo List API** is a backend application built with **Laravel 10** and **M
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todo-list-api.git
+   git clone https://github.com/rodrigocarreonc/TodoListApi.git
    cd todo-list-api
    ```
 
@@ -74,17 +74,16 @@ The **Todo List API** is a backend application built with **Laravel 10** and **M
 ## API Endpoints
 
 ### Authentication
-- **Register**: `POST /api/register`
+- **Register**: `POST /api/auth/register`
   ```json
   {
     "name": "John Doe",
     "email": "john.doe@example.com",
     "password": "password123",
-    "password_confirmation": "password123"
   }
   ```
 
-- **Login**: `POST /api/login`
+- **Login**: `POST /api/auth/login`
   ```json
   {
     "email": "john.doe@example.com",
@@ -92,20 +91,19 @@ The **Todo List API** is a backend application built with **Laravel 10** and **M
   }
   ```
 
-- **Logout**: `POST /api/logout`
+- **Logout**: `POST /api/auth/logout`
   - Requires Bearer Token in the Authorization header.
 
 ### Task Management
-- **Get All Tasks**: `GET /api/tasks`
-- **Create a Task**: `POST /api/tasks`
+- **Get All Tasks**: `GET /api/todos`
+- **Create a Task**: `POST /api/todos`
   ```json
   {
     "title": "New Task",
-    "description": "This is a new task.",
-    "status": "pending"
+    "description": "This is a new task."
   }
   ```
-- **Update a Task**: `PUT /api/tasks/{id}`
+- **Update a Task**: `PUT /api/todos/{id}`
   ```json
   {
     "title": "Updated Task",
@@ -113,7 +111,7 @@ The **Todo List API** is a backend application built with **Laravel 10** and **M
     "status": "completed"
   }
   ```
-- **Delete a Task**: `DELETE /api/tasks/{id}`
+- **Delete a Task**: `DELETE /api/todos/{id}`
 ---
 **Enjoy building your tasks with the Todo List API!**
 
